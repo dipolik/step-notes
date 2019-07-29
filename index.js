@@ -62,8 +62,6 @@ app.delete('/api/notes/:id', async (req, res) => {
     res.send('ok')
 });
 
-
-
 app.listen(port, ()=>{
     console.log('server start');
 });
