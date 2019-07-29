@@ -18,20 +18,20 @@
     <div class="row mt-3">
         <div class="col text-right">
             <a href="/notes" role="button" class="btn btn-success" id="addBtn">+ ADD NEW</a>
-            <a href="/notes" type="button" class="btn btn-success" id="addBtn">+ ADD NEW</a>
         </div>
     </div>
     <div class="row mt-3">
         <%notes.forEach(function (elem) {%>
             <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
-            <div class="card" data-id="<%= elem._id%>">
-            <div class="card">
+                <div class="card" data-id="<%= elem._id%>">
+                <div class="card">
                 <div class="card-body">
                     <h5 class="card-title"><%= elem.title%></h5>
                     <p class="card-text"><%= elem.text%></p>
                 </div>
+                </div>
+                </div>
             </div>
-        </div>
         <%})%>
     </div>
 </div>
