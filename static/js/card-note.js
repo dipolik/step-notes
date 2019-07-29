@@ -9,23 +9,23 @@ let id = document.querySelector('.container').dataset.id;
 
 
 changeBtn.addEventListener('click', async function () {
-    let data = {
-        title: title.value,
-        text: text.value
-    };
-    await fetch(`../api/notes/${id}`,{
-        method: 'PUT',
-        headers: {
-            'Content-Type':'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-    window.location.href = '/'
+	let data = {
+		title: title.value,
+		text: text.value
+	};
+	await fetch(`../api/notes/${id}`, {
+		method: 'PUT',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(data)
+	});
+	window.location.href = '/'
 });
 
 deleteBtn.addEventListener('click', async function () {
-    await fetch(`../api/notes/${id}`,{
-        method: 'DELETE',
-    });
-    window.location.href = '/'
+	await fetch(`../api/notes/${id}`, {
+		method: 'DELETE',
+	});
+	window.location.href = '/'
 });
