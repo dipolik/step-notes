@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
+	<title>New List</title>
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 
@@ -13,28 +13,30 @@
 	<div class="container">
 		<div class="row mt-5">
 			<div class="col">
-				<h1 class="text-center">Create new note</h1>
+				<h1 class="text-center">Create new list</h1>
 			</div>
 		</div>
 		<div class="row mt-3 text-center">
-			<div class="col mt-3 align-self-center">
+			<div class="col mt-3 align-self-center inputs-wrapper">
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon1">Title</span>
 					</div>
-					<input type="text" id="title" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+					<input type="text" id="title" class="form-control" data-value="">
 				</div>
-				<div class="input-group">
+				<div class="input-group mb-3">
 					<div class="input-group-prepend">
-						<span class="input-group-text">Text</span>
+						<div class="input-group-text">
+							<input type="checkbox">
+						</div>
 					</div>
-					<textarea class="form-control" id="text" aria-label="With textarea"></textarea>
-				</div>
+					<input type="text" class="form-control list-task" data-value="">
+						</div>
 				<button type="button" id="createBtn" class="btn btn-outline-success mt-4">Create</button>
-			</div>
-		</div>
+					</div>
+				</div>
 	</div>
-	<script src="/js/notes.js"></script>
+	<script src="/js/lists.js"></script>
 </body>
 
 </html>
