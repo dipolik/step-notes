@@ -1,4 +1,3 @@
-
 const express = require('express');
 const port = 3000;
 const app = express();
@@ -62,6 +61,8 @@ app.delete('/api/notes/:id', async (req, res) => {
     await app.db.deleteOne({"_id":ObjectId(req.params.id)});
     res.send('ok')
 });
+
+
 
 app.listen(port, ()=>{
     console.log('server start');
