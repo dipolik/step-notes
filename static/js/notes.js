@@ -19,19 +19,5 @@ createBtn.addEventListener('click', async () =>{
         });
         window.location.href = '/'
     }
-
-    let data = {
-        type: 'note',
-        title: title.value,
-        text: text.value
-    };
-    await fetch('/api/notes', {
-        method: 'POST',
-        headers: {
-            'Content-Type':'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-   window.location.replace('/')
 });
 
