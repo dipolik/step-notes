@@ -35,17 +35,33 @@ app.get('/notes', (req,res) =>{
     res.render('notes');
 });
 
+app.get('/notes/:id',async (req,res) =>{
+    let card;
+    await app.db.find(ObjectId(req.params.id)).forEach(elem =>{
+        card = elem;
+    });
+    res.render('card',{card: card})
+});
+
 app.post('/api/notes', async (req,res) =>{
     await app.db.insertOne(req.body);
     res.send('ok')
 });
 
+app.put('/api/notes/:id', async (req, res) => {
+    await app.db.updateOne({"_id":ObjectId(req.params.id)}, {
+        $set: {
+            title: req.body.title,
+            text: req.body.text
+        }
+    });
+    res.send('ok')
+});
 
-
-
-
-
-
+app.delete('/api/notes/:id', async (req, res) => {
+    await app.db.deleteOne({"_id":ObjectId(req.params.id)});
+    res.send('ok')
+});
 
 app.listen(port, ()=>{
     console.log('server start');
