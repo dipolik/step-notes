@@ -4,6 +4,7 @@ let addTask = document.getElementById('addTask');
 let changeButton = document.getElementById('change');
 let deleteButton = document.getElementById('delete');
 let id = document.querySelector('.container').dataset.id;
+let tasksWrapper = document.querySelector('.tasks-wrapper');
 
 
 const taskInput = `
@@ -13,48 +14,54 @@ const taskInput = `
 		</div>
 	</div>
 	<input type="text" class="form-control list-task" data-value="">
+	<div class="input-group-append">
+<button class="btn btn-danger remove-task" type="button" id="button-addon2">-</button>
+</div>
 `
 
 title.value = title.dataset.value;
 
 inputText.forEach(el => {
 	el.value = el.dataset.value
-})
+});
 
 addTask.addEventListener('click', function() {
-	let div = document.createElement('div');
-	div.className = 'input-group mb-3 task-item'
-	div.innerHTML = taskInput
-	let buttonWrapper = document.querySelector('.button-wrapper')
-	let inputsWrapper = document.querySelector('.inputs-wrapper')
-	inputsWrapper.insertBefore(div, buttonWrapper)
-})
+	let newTask = document.createElement('div');
+	newTask.className = 'input-group mb-3 task-item';
+	newTask.innerHTML = taskInput;
+	tasksWrapper.appendChild(newTask)
+});
 
 changeButton.addEventListener('click', async function(){
-	let list = []
-	document.querySelectorAll('.task-item').forEach(el => {
-		let obj = {
-			text: el.children[1].value,
-			status: el.querySelector('input').checked
+	let list = [];
+	let taskItems = document.querySelectorAll('.task-item');
+	taskItems.forEach(el => {
+		if (el.children[1].value){
+			let obj = {
+				text: el.children[1].value,
+				status: el.querySelector('input').checked
+			};
+			list.push(obj)
 		}
-		list.push(obj)
-	})
-	
-	let data = {
-		type: "list",
-		title: title.value,
-		list:list
-		
+	});
+
+	if (list.length > 0){
+		let data = {
+			type: "list",
+			title: title.value,
+			list:list
+		};
+		await fetch (`../api/lists/${id}`, {
+			method: "PUT",
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(data)
+		});
+		window.location.href = "/";
+	}else{
+		alert('ADD AT LIST ONE TASK')
 	}
-	
-	await fetch (`../api/lists/${id}`, {
-		method: "PUT",
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify(data)
-	})
-	window.location.href = "/";
 })
 
 deleteButton.addEventListener('click', async function(){
@@ -64,3 +71,9 @@ deleteButton.addEventListener('click', async function(){
 		window.location.href = "/";
 
 })
+
+tasksWrapper.addEventListener('click',function (event) {
+		if (event.target.classList.contains('remove-task')){
+			event.target.parentNode.parentNode.remove();
+		}
+	});

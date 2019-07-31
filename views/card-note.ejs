@@ -17,13 +17,13 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon1">Title</span>
 					</div>
-					<input type="text" id="title" class="form-control" aria-label="Username" aria-describedby="basic-addon1" data-value="<%= card.title%>">
+					<input type="text" id="title" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="<%= card.title%>">
 				</div>
 				<div class="input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text">Text</span>
 					</div>
-					<textarea class="form-control" id="text" aria-label="With textarea" data-value="<%= card.text%>"></textarea>
+					<textarea class="form-control" id="text" aria-label="With textarea"> <%= card.text%></textarea>
 				</div>
 				<div class="row mt-4">
 					<div class="col-6 text-right">

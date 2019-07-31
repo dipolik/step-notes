@@ -1,7 +1,7 @@
-let title = document.getElementById('title');
-title.value = title.dataset.value;
-let text = document.getElementById('text');
-text.value = text.dataset.value;
+// let title = document.getElementById('title');
+// title.value = title.dataset.value;
+// let text = document.getElementById('text');
+// text.value = text.dataset.value;
 
 let changeBtn = document.getElementById('change');
 let deleteBtn = document.getElementById('delete');

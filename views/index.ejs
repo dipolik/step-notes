@@ -51,18 +51,14 @@
 						<div class="card-body">
 							<h5 class="card-title"><%= elem.title%></h5>
 							<div>
-								<ul class="list-group">
+								<ul class="">
 									<%elem.list.forEach(function(item){
 									if(!item.status){%>
-									<li class="list-group-item list-group-item-light"><%=item.text%></li><%}
+									<li class=""><%=item.text%></li><%}
 								})%>
-								</ul>
-							</div>
-							<div>
-								<ul class="list-group">
 									<%elem.list.forEach(function(item){
 									if(item.status){%>
-									<li class="list-group-item list-group-item-success"><%=item.text%></li><%}
+									<li class="text-success"><del><%=item.text%></del></li><%}
 								})%>
 								</ul>
 							</div>

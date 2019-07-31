@@ -10,32 +10,45 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="row mt-5">
-			<div class="col">
-				<h1 class="text-center">Create new list</h1>
-			</div>
-		</div>
-		<div class="row mt-3 text-center">
-			<div class="col mt-3 align-self-center inputs-wrapper">
-				<div class="input-group mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="basic-addon1">Title</span>
-					</div>
-					<input type="text" id="title" class="form-control" data-value="">
+<div class="container">
+	<div class="row mt-3 text-center">
+		<div class="col mt-3 align-self-center inputs-wrapper">
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="basic-addon1">Title</span>
 				</div>
-				<div class="input-group mb-3">
+				<input type="text" id="title" class="form-control">
+			</div>
+			<div class="tasks-wrapper">
+				<div class="input-group mb-3 task-item">
 					<div class="input-group-prepend">
 						<div class="input-group-text">
 							<input type="checkbox">
 						</div>
 					</div>
-					<input type="text" class="form-control list-task" data-value="">
-						</div>
-				<button type="button" id="createBtn" class="btn btn-outline-success mt-4">Create</button>
+					<input type="text" class="form-control list-task">
+					<div class="input-group-append">
+						<button class="btn btn-danger remove-task" type="button" id="button-addon2">-</button>
 					</div>
 				</div>
+			</div>
+			<div class="row mt-3 button-wrapper">
+				<div class="col-12 text-left">
+					<button type="button" id="addTask" class="btn btn-success">+</button>
+				</div>
+			</div>
+
+			<div class="row mt-5 button-wrapper">
+				<div class="col-6 text-center">
+					<button type="button" id="saveBtn" class="btn btn-warning">Save</button>
+				</div>
+				<div class="col-6 text-center">
+					<a role="button" href="/" class="btn btn-danger">Cancel</a>
+				</div>
+			</div>
+		</div>
 	</div>
+</div>
 	<script src="/js/lists.js"></script>
 </body>
 
