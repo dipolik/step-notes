@@ -5,36 +5,40 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
+	<title>Card Note</title>
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 
 <body>
-	<div class="container">
-		<div class="row mt-5">
-			<div class="col">
-				<h1 class="text-center">Create new note</h1>
-			</div>
-		</div>
+	<div class="container" data-id="<%= card._id%>">
 		<div class="row mt-3 text-center">
 			<div class="col mt-3 align-self-center">
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon1">Title</span>
 					</div>
-					<input type="text" id="title" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+					<input type="text" id="title" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="<%= card.title%>">
 				</div>
 				<div class="input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text">Text</span>
 					</div>
-					<textarea class="form-control" id="text" aria-label="With textarea"></textarea>
+					<textarea class="form-control" id="text" aria-label="With textarea"> <%= card.text%></textarea>
 				</div>
-				<button type="button" id="createBtn" class="btn btn-outline-success mt-4">Create</button>
+				<div class="row mt-4">
+					<div class="col-6 text-right">
+						<button type="button" id="change" class="btn btn-warning">Change</button>
+					</div>
+					<div class="col-6 text-left">
+						<button type="button" id="delete" class="btn btn-danger">Delete</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<script src="/js/notes.js"></script>
+
+
+	<script src="/js/card-note.js"></script>
 </body>
 
 </html>

@@ -1,11 +1,18 @@
 const addBtn = document.getElementById('addBtn');
 
-const card = document.querySelectorAll('.card');
+const cardNote = document.querySelectorAll('.card-note');
+const cardList = document.querySelectorAll('.card-list');
 
-card.forEach( elem =>{
-    elem.addEventListener('click',  function (event) {
-        console.log('hi');
-        let id = event.currentTarget.dataset.id;
-        window.location.href = `notes/${id}`
-    })
+cardNote.forEach(elem => {
+	elem.addEventListener('click', function (event) {
+		let id = event.currentTarget.dataset.id;
+		window.location.href = `notes/${id}`
+	})
+});
+
+cardList.forEach(elem => {
+	elem.addEventListener('click', function (event) {
+		let id = event.currentTarget.dataset.id;
+		window.location.href = `lists/${id}`
+	})
 });
